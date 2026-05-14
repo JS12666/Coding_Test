@@ -8,8 +8,7 @@ def find_not_repeating_first_character(string):
     # 그리고 빈도수가 1인 알파벳들 중에서 string 에서 뭐가 먼저 나왔는지 찾아본다.
     not_repeating_character_array = []
     for index in range(len(occurrence_array)):
-        alphabet_occurrence = occurrence_array[index]
-        if alphabet_occurrence == 1:
+        if occurrence_array[index] == 1:
             not_repeating_character_array.append(chr(index + ord('a')))
 
     # 빈도수가 1인 알파벳 배열
