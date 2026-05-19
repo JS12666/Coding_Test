@@ -12,6 +12,11 @@ graph = {
     10: [9]
 }
 
+# 1. 루트 노드를 스택에 넣습니다.
+# 2. 현재 스택의 노드를 빼서 visited 에 추가한다.
+# 3. 현재 방문한 노드와 인접한 노드 중 방문하지 않은 노드를 스택에 추가한다.
+# 4. 2부터 반복한다.
+# 5. 스택이 비면 탐색을 종료한다.
 
 def dfs_stack(adjacent_graph, start_node):
     # 구현해보세요!
@@ -21,9 +26,9 @@ def dfs_stack(adjacent_graph, start_node):
         current_node = stack.pop()
         visited.append(current_node)
 
-        for adjacent_node in adjacent_graph[current_node]:
+        for adjacent_node in adjacent_graph[current_node]: # 2, 5, 9
             if adjacent_node not in visited :
-                stack.append(adjacent_node)
+                stack.append(adjacent_node)             # 9
 
     return visited
 

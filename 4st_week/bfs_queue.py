@@ -14,17 +14,22 @@ graph = {
     10: [6]
 }
 
+# 1. 루트 노드를 큐에 넣습니다.
+# 2. 현재 큐의 노드를 빼서 visited 에 추가한다.
+# 3. 현재 방문한 노드와 인접한 노드 중 방문하지 않은 노드를 큐에 추가한다.
+# 4. 2부터 반복한다.
+# 5. 큐가 비면 탐색을 종료한다.
 
 def bfs_queue(adj_graph, start_node):
     queue = deque([start_node])
-    visited = []
+    visited = [start_node]
 
     while queue :
-        current_node = queue.popleft()
-        visited.append(current_node)
-        for adjacent_node in adj_graph[current_node]:
+        current_node = queue.popleft() # 1 -> 2
+        for adjacent_node in adj_graph[current_node]: # 2, 3, 4
             if adjacent_node not in visited:
-                queue.append(adjacent_node)
+                queue.append(adjacent_node) # 2, 3, 4
+                visited.append(adjacent_node) # visited = 1
 
     return visited
 
